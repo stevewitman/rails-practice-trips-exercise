@@ -4,7 +4,6 @@
 <p>
   <%= @user.email %>
 </p>
-<%= link_to "New Trip", new_user_trip_path(@user)  %>
 <table class="table">
   <thead>
     <td>Location</td>
@@ -19,8 +18,9 @@
     <td><%= trip.location %></td>
     <td><%= trip.date %></td>
     <td><%= trip.cost %></td>
-    <td></td>
+    <td><%= link_to "edit", edit_user_trip_path(@user, trip) %></td>
   </tr>
   <% end %>
 
 </table>
+<%= link_to "New Trip", new_user_trip_path(@user)  %>

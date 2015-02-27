@@ -2,6 +2,21 @@
   <%= "New Trip for #{@user.name}" %>
 </h1>
 <%= form_for [@user, @trip], html: {class: "form-horizontal"} do |f| %>
+<% if @trip.errors.any? %>
+  <div class="form-group">
+    <div class="col-sm-1">
+    </div>
+    <div class="col-sm-4">
+      <div class="alert alert-danger">
+        <% @trip.errors.full_messages.each do |message| %>
+          <li>
+            <%= message %>
+          </li>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
   <div class="form-group">
     <%= f.label :location, class: "control-label" %>
     <%= f.text_field :location, class: "form-control" %>

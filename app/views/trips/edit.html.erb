@@ -1,0 +1,62 @@
+<h1 class="page-header">
+  <%= "Edit trip for #{@user.name}" %>
+</h1>
+
+<%= form_for [@user, @trip], html: {class: "form-horizontal"} do |f| %>
+
+  <% if @trip.errors.any? %>
+    <div class="form-group">
+      <div class="col-sm-1">
+      </div>
+      <div class="col-sm-4">
+        <div class="alert alert-danger">
+          <% @trip.errors.full_messages.each do |message| %>
+            <li>
+              <%= message %>
+            </li>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+<div class="form-group">
+  <div class="col-sm-1">
+    <%= f.label :location, class: "control-label" %>
+  </div>
+  <div class="col-sm-4">
+    <%= f.text_field :location, class: "form-control" %>
+  </div>
+</div>
+
+<div class="form-group">
+  <div class="col-sm-1">
+    <%= f.label :date, class: "control-label" %>
+  </div>
+  <div class="col-sm-4">
+    <%= f.text_field :date, class: "form-control" %>
+  </div>
+</div>
+
+<div class="form-group">
+  <div class="col-sm-1">
+    <%= f.label :cost, class: "control-label" %>
+  </div>
+  <div class="col-sm-4">
+    <%= f.text_field :cost, class: "form-control" %>
+  </div>
+</div>
+
+<div class="form-group">
+  <div class="col-sm-1">
+  </div>
+  <div class="col-sm-4">
+    <%= f.submit nil, class: "btn btn-info" %>
+    <%= link_to "Delete Trip", user_trip_path(@user, @trip), class: "btn btn-danger",
+    method: :delete, data: {confirm: "Are you sure?"} %>
+  </div>
+</div>
+
+
+
+<% end %>
