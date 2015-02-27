@@ -1,0 +1,26 @@
+<h1 class="page-header">
+  <%= @user.name %>
+</h1>
+<p>
+  <%= @user.email %>
+</p>
+<%= link_to "New Trip", new_user_trip_path(@user)  %>
+<table class="table">
+  <thead>
+    <td>Location</td>
+    <td>Date</td>
+    <td>Cost</td>
+    <td></td>
+
+  </thead>
+
+  <% @trips.each do |trip| %>
+  <tr>
+    <td><%= trip.location %></td>
+    <td><%= trip.date %></td>
+    <td><%= trip.cost %></td>
+    <td></td>
+  </tr>
+  <% end %>
+
+</table>

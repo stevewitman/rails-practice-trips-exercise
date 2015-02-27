@@ -17,6 +17,7 @@ gem 'faker'
 group :development, :test do
   gem 'rspec-rails', '~> 3.2.0'
   gem 'capybara', '~> 2.4.4'
+  gem 'launchy'
   gem 'byebug', '~> 3.5.1'
   gem 'web-console', '~> 2.0'
   gem 'quiet_assets'
